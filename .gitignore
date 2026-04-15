@@ -1,1 +1,5 @@
-node_modules\n.env\ndist\n.claude/plugins
+node_modules
+.env
+dist
+.claude/
+*.local
