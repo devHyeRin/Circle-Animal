@@ -18,9 +18,9 @@ const RULES = {
 }
 
 function addDays(dateStr, days) {
-  const d = new Date(dateStr)
-  d.setDate(d.getDate() + days)
-  return d.toISOString().split('T')[0]
+  const [y, m, d] = dateStr.split('-').map(Number)
+  const result = new Date(Date.UTC(y, m - 1, d + days))
+  return result.toISOString().split('T')[0]
 }
 
 function findRule(species, itemName) {
@@ -51,9 +51,12 @@ export function getNextVaccinationDate(species, itemName, lastDate) {
  * @returns {{ item: string, lastDate: string, nextDate: string }[]}
  */
 export function getSchedules(species, records) {
+  if (!Array.isArray(records)) return []
   const latestByItem = {}
   records.forEach((record) => {
+    if (!record?.date || !Array.isArray(record.items)) return
     record.items.forEach((item) => {
+      if (typeof item !== 'string' || !item.trim()) return
       if (!latestByItem[item] || record.date > latestByItem[item]) {
         latestByItem[item] = record.date
       }
