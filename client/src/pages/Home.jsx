@@ -16,26 +16,44 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <h1>내 반려동물</h1>
+    <div className="min-h-screen bg-gray-50 py-6 px-4">
+      <div className="max-w-2xl mx-auto space-y-4">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-gray-900">내 반려동물</h1>
+          {!showForm && (
+            <button
+              onClick={() => setShowForm(true)}
+              className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700"
+            >
+              + 추가
+            </button>
+          )}
+        </div>
 
-      {pets.length === 0 && !showForm && (
-        <p>등록된 반려동물이 없습니다.</p>
-      )}
+        {showForm && (
+          <div className="bg-white rounded-2xl px-6 py-5 shadow-sm border border-gray-100">
+            <h2 className="text-base font-semibold text-gray-500 uppercase tracking-wide mb-4">반려동물 등록</h2>
+            <PetForm onSave={handleSave} onCancel={() => setShowForm(false)} />
+          </div>
+        )}
 
-      <ul>
-        {pets.map((pet) => (
-          <li key={pet.id} onClick={() => navigate(`/pets/${pet.id}`)} style={{ cursor: 'pointer' }}>
-            {pet.name} · {SPECIES_LABEL[pet.species] ?? pet.species} · {pet.birthDate}
-          </li>
-        ))}
-      </ul>
+        {pets.length === 0 && !showForm && (
+          <p className="text-gray-400 text-sm">등록된 반려동물이 없습니다.</p>
+        )}
 
-      {showForm ? (
-        <PetForm onSave={handleSave} onCancel={() => setShowForm(false)} />
-      ) : (
-        <button onClick={() => setShowForm(true)}>+ 반려동물 추가</button>
-      )}
+        <ul className="space-y-2">
+          {pets.map((pet) => (
+            <li
+              key={pet.id}
+              onClick={() => navigate(`/pets/${pet.id}`)}
+              className="bg-white rounded-2xl px-6 py-4 shadow-sm border border-gray-100 cursor-pointer hover:border-blue-200 hover:shadow-md transition-shadow"
+            >
+              <p className="font-semibold text-gray-900">{pet.name}</p>
+              <p className="text-sm text-gray-400">{SPECIES_LABEL[pet.species] ?? pet.species} · {pet.birthDate}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }

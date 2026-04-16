@@ -30,33 +30,69 @@ export default function PetDetail() {
   }
 
   return (
-    <div>
-      <button onClick={() => navigate('/')}>← 뒤로</button>
-      <h1>{pet.name}</h1>
-      <p>종: {SPECIES_LABEL[pet.species] ?? pet.species}</p>
-      <p>생년월일: {pet.birthDate}</p>
+    <div className="min-h-screen bg-gray-50 py-6 px-4">
+      <div className="max-w-2xl mx-auto space-y-4">
 
-      <ScheduleCard species={pet.species} records={records} />
+        {/* 상단 액션 바 */}
+        <div className="flex items-center justify-between">
+          <button onClick={() => navigate('/')} className="text-sm text-gray-500 hover:text-gray-800">
+            ← 뒤로
+          </button>
+          <button
+            onClick={() => navigate(`/pets/${petId}/report`)}
+            className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700"
+          >
+            리포트 생성
+          </button>
+        </div>
 
-      <h2>진료 기록</h2>
-      {records.length === 0 && <p>진료 기록이 없습니다.</p>}
-      <ul>
-        {records.map((r) => (
-          <li key={r.id}>
-            {r.date} · {r.items.join(', ')}
-            {r.hospital && ` · ${r.hospital}`}
-            {r.memo && <p style={{ color: '#888', fontSize: '0.9em' }}>{r.memo}</p>}
-          </li>
-        ))}
-      </ul>
+        {/* 기본 정보 */}
+        <div className="bg-white rounded-2xl px-6 py-5 shadow-sm border border-gray-100">
+          <h1 className="text-2xl font-bold text-gray-900">{pet.name}</h1>
+          <p className="text-sm text-gray-400 mt-1">
+            {SPECIES_LABEL[pet.species] ?? pet.species} · {pet.birthDate}
+          </p>
+        </div>
 
-      {showForm ? (
-        <RecordForm petId={petId} onSave={handleSaveRecord} onCancel={() => setShowForm(false)} />
-      ) : (
-        <button onClick={() => setShowForm(true)}>+ 진료 기록 추가</button>
-      )}
+        <ScheduleCard species={pet.species} records={records} />
 
-      <button onClick={() => navigate(`/pets/${petId}/report`)}>AI 리포트 생성</button>
+        {/* 진료 기록 */}
+        <div className="bg-white rounded-2xl px-6 py-5 shadow-sm border border-gray-100">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-base font-semibold text-gray-500 uppercase tracking-wide">진료 기록</h2>
+            {!showForm && (
+              <button
+                onClick={() => setShowForm(true)}
+                className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+              >
+                + 추가
+              </button>
+            )}
+          </div>
+
+          {showForm && (
+            <div className="mb-4">
+              <RecordForm petId={petId} onSave={handleSaveRecord} onCancel={() => setShowForm(false)} />
+            </div>
+          )}
+
+          {records.length === 0 && !showForm && (
+            <p className="text-sm text-gray-400">진료 기록이 없습니다.</p>
+          )}
+
+          <ul className="space-y-3">
+            {records.map((r) => (
+              <li key={r.id} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                <p className="text-sm font-medium text-gray-800">{r.date}</p>
+                <p className="text-sm text-gray-600">{r.items.join(', ')}</p>
+                {r.hospital && <p className="text-xs text-gray-400">{r.hospital}</p>}
+                {r.memo && <p className="text-xs text-gray-400 mt-0.5">{r.memo}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
     </div>
   )
 }
