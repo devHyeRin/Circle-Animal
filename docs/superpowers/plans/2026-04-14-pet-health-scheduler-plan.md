@@ -6,7 +6,7 @@
 
 **Architecture:** React (Vite) 클라이언트가 모든 데이터를 localStorage에서 관리하고 접종 스케줄을 계산한다. Node.js/Express 서버는 Claude API 키를 보호하며 `/api/summary` 단일 엔드포인트만 제공한다. Vite proxy로 개발 중 CORS 없이 두 서버를 연결한다.
 
-**Tech Stack:** React 18, Vite 5, Tailwind CSS 3, React Router 6, Vitest, @testing-library/react, @testing-library/user-event, @testing-library/jest-dom, Node.js 20, Express 4, @anthropic-ai/sdk, jsPDF, html2canvas
+**Tech Stack:** React 19, Vite 8, Tailwind CSS 3, React Router 7, Vitest, @testing-library/react, @testing-library/user-event, @testing-library/jest-dom, Node.js 20, Express 5, @anthropic-ai/sdk, jsPDF, html2canvas
 
 ---
 
