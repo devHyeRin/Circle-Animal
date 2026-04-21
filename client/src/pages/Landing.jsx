@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import HeroSection from '../components/landing/HeroSection'
 import FeatureSection from '../components/landing/FeatureSection'
+import TestimonialSection from '../components/landing/TestimonialSection'
+import InfoSection from '../components/landing/InfoSection'
 
 export default function Landing() {
   const navigate = useNavigate()
@@ -9,6 +11,8 @@ export default function Landing() {
     <div>
       <HeroSection />
       <FeatureSection />
+      <TestimonialSection />
+      <InfoSection />
 
       {/* CTA 배너 */}
       <section className="bg-blue-600 py-16 px-4">
