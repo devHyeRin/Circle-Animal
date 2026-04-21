@@ -36,7 +36,7 @@ export default function Report() {
   if (!pet) return (
     <div>
       <p>반려동물을 찾을 수 없습니다.</p>
-      <button onClick={() => navigate('/')}>홈으로</button>
+      <button onClick={() => navigate('/my')}>홈으로</button>
     </div>
   )
 
@@ -59,7 +59,7 @@ export default function Report() {
         {/* 상단 액션 바 */}
         <div className="flex items-center justify-between mb-6">
           <button
-            onClick={() => navigate(`/pets/${petId}`)}
+            onClick={() => navigate(`/my/pets/${petId}`)}
             className="text-sm text-gray-500 hover:text-gray-800"
           >
             ← 뒤로

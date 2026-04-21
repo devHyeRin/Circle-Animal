@@ -45,7 +45,7 @@ export default function Home() {
           {pets.map((pet) => (
             <li
               key={pet.id}
-              onClick={() => navigate(`/pets/${pet.id}`)}
+              onClick={() => navigate(`/my/pets/${pet.id}`)}
               className="bg-white rounded-2xl px-6 py-4 shadow-sm border border-gray-100 cursor-pointer hover:border-blue-200 hover:shadow-md transition-shadow"
             >
               <p className="font-semibold text-gray-900">{pet.name}</p>

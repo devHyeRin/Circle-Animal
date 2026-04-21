@@ -20,7 +20,7 @@ export default function PetDetail() {
   if (!pet) return (
     <div>
       <p>반려동물을 찾을 수 없습니다.</p>
-      <button onClick={() => navigate('/')}>홈으로</button>
+      <button onClick={() => navigate('/my')}>홈으로</button>
     </div>
   )
 
@@ -35,11 +35,11 @@ export default function PetDetail() {
 
         {/* 상단 액션 바 */}
         <div className="flex items-center justify-between">
-          <button onClick={() => navigate('/')} className="text-sm text-gray-500 hover:text-gray-800">
+          <button onClick={() => navigate('/my')} className="text-sm text-gray-500 hover:text-gray-800">
             ← 뒤로
           </button>
           <button
-            onClick={() => navigate(`/pets/${petId}/report`)}
+            onClick={() => navigate(`/my/pets/${petId}/report`)}
             className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700"
           >
             리포트 생성
