@@ -43,25 +43,25 @@ function Stars({ count }) {
 
 export default function TestimonialSection() {
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-20 px-4 bg-beige">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">보호자 후기</h2>
-          <p className="text-gray-500 text-lg">직접 다녀오신 보호자분들의 이야기입니다.</p>
+          <h2 className="text-3xl font-bold text-ink mb-3">보호자 후기</h2>
+          <p className="text-ink-sub text-lg">직접 다녀오신 보호자분들의 이야기입니다.</p>
         </div>
 
-        {/* 카드 스크롤 그리드 */}
+        {/* 카드 그리드 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
           {REVIEWS.map((r) => (
             <div
               key={r.name}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col"
+              className="bg-white rounded-2xl p-6 shadow-warm-sm border border-warm-border flex flex-col"
             >
               <Stars count={r.rating} />
-              <p className="text-sm text-gray-700 leading-relaxed mt-3 flex-1">"{r.text}"</p>
-              <div className="mt-4 pt-4 border-t border-gray-100">
-                <p className="text-sm font-semibold text-gray-900">{r.name}</p>
-                <p className="text-xs text-gray-400 mt-0.5">{r.pet}</p>
+              <p className="text-sm text-ink-sub leading-relaxed mt-3 flex-1">"{r.text}"</p>
+              <div className="mt-4 pt-4 border-t border-warm-border">
+                <p className="text-sm font-semibold text-ink">{r.name}</p>
+                <p className="text-xs text-ink-muted mt-0.5">{r.pet}</p>
               </div>
             </div>
           ))}
@@ -70,18 +70,18 @@ export default function TestimonialSection() {
         {/* 총합 지표 */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 text-center">
           <div>
-            <p className="text-3xl font-bold text-blue-600">4.9</p>
-            <p className="text-sm text-gray-400 mt-1">평균 평점</p>
+            <p className="text-3xl font-bold text-accent-dark">4.9</p>
+            <p className="text-sm text-ink-muted mt-1">평균 평점</p>
           </div>
-          <div className="hidden sm:block w-px h-10 bg-gray-200" />
+          <div className="hidden sm:block w-px h-10 bg-warm-200" />
           <div>
-            <p className="text-3xl font-bold text-blue-600">1,200+</p>
-            <p className="text-sm text-gray-400 mt-1">누적 후기</p>
+            <p className="text-3xl font-bold text-accent-dark">1,200+</p>
+            <p className="text-sm text-ink-muted mt-1">누적 후기</p>
           </div>
-          <div className="hidden sm:block w-px h-10 bg-gray-200" />
+          <div className="hidden sm:block w-px h-10 bg-warm-200" />
           <div>
-            <p className="text-3xl font-bold text-blue-600">92%</p>
-            <p className="text-sm text-gray-400 mt-1">재방문율</p>
+            <p className="text-3xl font-bold text-accent-dark">92%</p>
+            <p className="text-sm text-ink-muted mt-1">재방문율</p>
           </div>
         </div>
       </div>

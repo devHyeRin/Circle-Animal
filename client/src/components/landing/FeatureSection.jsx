@@ -33,13 +33,13 @@ const FEATURES = [
 
 export default function FeatureSection() {
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-20 px-4 bg-ivory">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">
+          <h2 className="text-3xl font-bold text-ink mb-3">
             왜 서클동물병원인가요?
           </h2>
-          <p className="text-gray-500 text-lg">
+          <p className="text-ink-sub text-lg">
             반려동물의 건강을 위해 가장 중요한 것들에 집중합니다.
           </p>
         </div>
@@ -48,11 +48,11 @@ export default function FeatureSection() {
           {FEATURES.map((f) => (
             <div
               key={f.title}
-              className="bg-gray-50 rounded-2xl p-6 hover:shadow-md transition-shadow"
+              className="bg-white rounded-2xl p-6 border border-warm-border hover:shadow-warm-md transition-shadow"
             >
               <div className="text-4xl mb-4">{f.icon}</div>
-              <h3 className="text-base font-semibold text-gray-900 mb-2">{f.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+              <h3 className="text-base font-semibold text-ink mb-2">{f.title}</h3>
+              <p className="text-sm text-ink-sub leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>

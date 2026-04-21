@@ -37,19 +37,19 @@ const HOURS = [
 
 export default function About() {
   return (
-    <div className="bg-white">
+    <div className="bg-ivory">
 
       {/* 히어로 */}
-      <section className="bg-gradient-to-br from-blue-50 to-white py-20 px-4">
+      <section className="bg-gradient-to-br from-brand-xlight to-ivory py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block bg-blue-100 text-blue-600 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          <span className="inline-block bg-brand-light text-brand-dark text-xs font-semibold px-3 py-1 rounded-full mb-4">
             2012년 개원 · 누적 환자 3만+
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-ink leading-tight mb-4">
             반려동물 곁에서<br />
-            <span className="text-blue-600">12년을 함께했습니다</span>
+            <span className="text-accent-dark">12년을 함께했습니다</span>
           </h1>
-          <p className="text-gray-500 text-lg leading-relaxed">
+          <p className="text-ink-sub text-lg leading-relaxed">
             서클동물병원은 과잉 진료 없는 정직한 의료를 원칙으로,<br />
             보호자와 반려동물이 함께 안심할 수 있는 공간을 만듭니다.
           </p>
@@ -57,18 +57,18 @@ export default function About() {
       </section>
 
       {/* 진료 철학 */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-ivory">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10 text-center">진료 철학</h2>
+          <h2 className="text-2xl font-bold text-ink mb-10 text-center">진료 철학</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: '정직한 설명', desc: '진단 결과와 치료 옵션을 있는 그대로 전달합니다. 보호자가 충분히 이해하고 결정할 수 있도록 시간을 씁니다.' },
               { title: '최소 침습 원칙', desc: '꼭 필요한 검사와 치료만 진행합니다. 반려동물의 스트레스와 보호자의 부담을 함께 줄입니다.' },
               { title: '지속적인 관계', desc: '한 번 방문으로 끝나지 않습니다. 전 생애에 걸쳐 건강을 함께 관리하는 주치의를 지향합니다.' },
             ].map((item) => (
-              <div key={item.title} className="bg-gray-50 rounded-2xl p-6">
-                <h3 className="text-base font-semibold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+              <div key={item.title} className="bg-white rounded-2xl p-6 border border-warm-border shadow-warm-xs">
+                <h3 className="text-base font-semibold text-ink mb-2">{item.title}</h3>
+                <p className="text-sm text-ink-sub leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -76,18 +76,18 @@ export default function About() {
       </section>
 
       {/* 의료진 */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-beige">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">의료진 소개</h2>
-          <p className="text-gray-500 text-center mb-10">전문 분야별 수의사가 직접 진료합니다.</p>
+          <h2 className="text-2xl font-bold text-ink mb-2 text-center">의료진 소개</h2>
+          <p className="text-ink-sub text-center mb-10">전문 분야별 수의사가 직접 진료합니다.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {VETS.map((vet) => (
-              <div key={vet.name} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-2xl mb-4">🩺</div>
-                <p className="text-xs text-blue-600 font-semibold mb-1">{vet.role}</p>
-                <h3 className="text-base font-bold text-gray-900 mb-1">{vet.name}</h3>
-                <p className="text-xs text-gray-400 mb-3">{vet.career}</p>
-                <p className="text-sm text-gray-500 leading-relaxed">{vet.desc}</p>
+              <div key={vet.name} className="bg-white rounded-2xl p-6 shadow-warm-sm border border-warm-border">
+                <div className="w-14 h-14 bg-brand-light rounded-full flex items-center justify-center text-2xl mb-4">🩺</div>
+                <p className="text-xs text-accent-dark font-semibold mb-1">{vet.role}</p>
+                <h3 className="text-base font-bold text-ink mb-1">{vet.name}</h3>
+                <p className="text-xs text-ink-muted mb-3">{vet.career}</p>
+                <p className="text-sm text-ink-sub leading-relaxed">{vet.desc}</p>
               </div>
             ))}
           </div>
@@ -95,17 +95,17 @@ export default function About() {
       </section>
 
       {/* 시설 */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-ivory">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">시설 · 장비</h2>
-          <p className="text-gray-500 text-center mb-10">정밀 진단을 위한 장비를 직접 운영합니다.</p>
+          <h2 className="text-2xl font-bold text-ink mb-2 text-center">시설 · 장비</h2>
+          <p className="text-ink-sub text-center mb-10">정밀 진단을 위한 장비를 직접 운영합니다.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {FACILITIES.map((f) => (
-              <div key={f.name} className="flex gap-4 items-start bg-gray-50 rounded-2xl p-5">
+              <div key={f.name} className="flex gap-4 items-start bg-white rounded-2xl p-5 border border-warm-border shadow-warm-xs">
                 <span className="text-3xl">{f.icon}</span>
                 <div>
-                  <p className="text-sm font-semibold text-gray-900 mb-1">{f.name}</p>
-                  <p className="text-xs text-gray-500 leading-relaxed">{f.desc}</p>
+                  <p className="text-sm font-semibold text-ink mb-1">{f.name}</p>
+                  <p className="text-xs text-ink-sub leading-relaxed">{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -114,55 +114,55 @@ export default function About() {
       </section>
 
       {/* 운영시간 + 연락처 */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-beige">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 
           {/* 운영시간 */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <h2 className="text-lg font-bold text-gray-900 mb-5">운영시간</h2>
+          <div className="bg-white rounded-2xl p-6 shadow-warm-sm border border-warm-border">
+            <h2 className="text-lg font-bold text-ink mb-5">운영시간</h2>
             <ul className="space-y-3">
               {HOURS.map((h) => (
                 <li key={h.day} className="flex justify-between text-sm">
-                  <span className="text-gray-500">{h.day}</span>
-                  <span className={`font-medium ${h.day === '응급 진료' ? 'text-blue-600' : 'text-gray-900'}`}>
+                  <span className="text-ink-sub">{h.day}</span>
+                  <span className={`font-medium ${h.day === '응급 진료' ? 'text-accent-dark' : 'text-ink'}`}>
                     {h.time}
                   </span>
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-gray-400 mt-4">※ 응급의 경우 사전 전화 후 방문해 주세요.</p>
+            <p className="text-xs text-ink-muted mt-4">※ 응급의 경우 사전 전화 후 방문해 주세요.</p>
           </div>
 
           {/* 연락처 */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <h2 className="text-lg font-bold text-gray-900 mb-5">오시는 길</h2>
+          <div className="bg-white rounded-2xl p-6 shadow-warm-sm border border-warm-border">
+            <h2 className="text-lg font-bold text-ink mb-5">오시는 길</h2>
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3">
                 <span className="text-lg">📍</span>
                 <div>
-                  <p className="font-medium text-gray-900">주소</p>
-                  <p className="text-gray-500">서울특별시 마포구 서교동 123-45<br />서클빌딩 2층</p>
+                  <p className="font-medium text-ink">주소</p>
+                  <p className="text-ink-sub">서울특별시 마포구 서교동 123-45<br />서클빌딩 2층</p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <span className="text-lg">📞</span>
                 <div>
-                  <p className="font-medium text-gray-900">전화</p>
-                  <p className="text-gray-500">02-1234-5678</p>
+                  <p className="font-medium text-ink">전화</p>
+                  <p className="text-ink-sub">02-1234-5678</p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <span className="text-lg">🚇</span>
                 <div>
-                  <p className="font-medium text-gray-900">대중교통</p>
-                  <p className="text-gray-500">홍대입구역 3번 출구 도보 5분</p>
+                  <p className="font-medium text-ink">대중교통</p>
+                  <p className="text-ink-sub">홍대입구역 3번 출구 도보 5분</p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <span className="text-lg">🅿️</span>
                 <div>
-                  <p className="font-medium text-gray-900">주차</p>
-                  <p className="text-gray-500">건물 내 주차 가능 (1시간 무료)</p>
+                  <p className="font-medium text-ink">주차</p>
+                  <p className="text-ink-sub">건물 내 주차 가능 (1시간 무료)</p>
                 </div>
               </li>
             </ul>
