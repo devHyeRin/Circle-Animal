@@ -11,11 +11,11 @@ export default function Header() {
   const navigate = useNavigate()
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+    <header className="sticky top-0 z-50 bg-ivory border-b border-warm-border shadow-warm-xs">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
 
         {/* 로고 */}
-        <Link to="/" className="text-lg font-bold text-blue-600 tracking-tight">
+        <Link to="/" className="text-lg font-bold text-ink tracking-tight">
           서클동물병원
         </Link>
 
@@ -25,17 +25,17 @@ export default function Header() {
             <Link
               key={link.href}
               to={link.href}
-              className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-sm text-ink-sub hover:text-ink transition-colors"
             >
               {link.label}
             </Link>
           ))}
-          <Link to="/my" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+          <Link to="/my" className="text-sm text-ink-sub hover:text-ink transition-colors">
             마이페이지
           </Link>
           <button
             onClick={() => navigate('/reservation')}
-            className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            className="bg-brand text-ink text-sm font-semibold px-4 py-2 rounded-xl hover:bg-brand-dark transition-colors shadow-warm-xs"
           >
             예약하기
           </button>
@@ -43,7 +43,7 @@ export default function Header() {
 
         {/* 모바일 햄버거 */}
         <button
-          className="md:hidden p-2 text-gray-600"
+          className="md:hidden p-2 text-ink-sub"
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="메뉴 열기"
         >
@@ -55,12 +55,12 @@ export default function Header() {
 
       {/* 모바일 드롭다운 */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-3 space-y-3">
+        <div className="md:hidden bg-ivory border-t border-warm-border px-4 py-3 space-y-3">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className="block text-sm text-gray-700"
+              className="block text-sm text-ink-sub"
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
@@ -68,14 +68,14 @@ export default function Header() {
           ))}
           <Link
             to="/my"
-            className="block text-sm text-gray-700"
+            className="block text-sm text-ink-sub"
             onClick={() => setMenuOpen(false)}
           >
             마이페이지
           </Link>
           <button
             onClick={() => { navigate('/reservation'); setMenuOpen(false) }}
-            className="w-full bg-blue-600 text-white text-sm px-4 py-2 rounded-lg"
+            className="w-full bg-brand text-ink font-semibold text-sm px-4 py-2 rounded-xl"
           >
             예약하기
           </button>

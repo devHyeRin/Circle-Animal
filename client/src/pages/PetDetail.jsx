@@ -30,26 +30,26 @@ export default function PetDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-6 px-4">
+    <div className="min-h-screen bg-beige py-6 px-4">
       <div className="max-w-2xl mx-auto space-y-4">
 
         {/* 상단 액션 바 */}
         <div className="flex items-center justify-between">
-          <button onClick={() => navigate('/my')} className="text-sm text-gray-500 hover:text-gray-800">
+          <button onClick={() => navigate('/my')} className="text-sm text-ink-sub hover:text-ink transition-colors">
             ← 뒤로
           </button>
           <button
             onClick={() => navigate(`/my/pets/${petId}/report`)}
-            className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700"
+            className="bg-brand text-ink text-sm font-semibold px-4 py-2 rounded-xl hover:bg-brand-dark transition-colors shadow-warm-xs"
           >
             리포트 생성
           </button>
         </div>
 
         {/* 기본 정보 */}
-        <div className="bg-white rounded-2xl px-6 py-5 shadow-sm border border-gray-100">
-          <h1 className="text-2xl font-bold text-gray-900">{pet.name}</h1>
-          <p className="text-sm text-gray-400 mt-1">
+        <div className="bg-white rounded-2xl px-6 py-5 shadow-warm-xs border border-warm-border">
+          <h1 className="text-2xl font-bold text-ink">{pet.name}</h1>
+          <p className="text-sm text-ink-muted mt-1">
             {SPECIES_LABEL[pet.species] ?? pet.species} · {pet.birthDate}
           </p>
         </div>
@@ -57,13 +57,13 @@ export default function PetDetail() {
         <ScheduleCard species={pet.species} records={records} />
 
         {/* 진료 기록 */}
-        <div className="bg-white rounded-2xl px-6 py-5 shadow-sm border border-gray-100">
+        <div className="bg-white rounded-2xl px-6 py-5 shadow-warm-xs border border-warm-border">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-base font-semibold text-gray-500 uppercase tracking-wide">진료 기록</h2>
+            <h2 className="text-xs font-semibold text-ink-muted uppercase tracking-wide">진료 기록</h2>
             {!showForm && (
               <button
                 onClick={() => setShowForm(true)}
-                className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+                className="text-sm text-accent-dark hover:text-ink font-medium transition-colors"
               >
                 + 추가
               </button>
@@ -77,16 +77,16 @@ export default function PetDetail() {
           )}
 
           {records.length === 0 && !showForm && (
-            <p className="text-sm text-gray-400">진료 기록이 없습니다.</p>
+            <p className="text-sm text-ink-muted">진료 기록이 없습니다.</p>
           )}
 
           <ul className="space-y-3">
             {records.map((r) => (
-              <li key={r.id} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                <p className="text-sm font-medium text-gray-800">{r.date}</p>
-                <p className="text-sm text-gray-600">{r.items.join(', ')}</p>
-                {r.hospital && <p className="text-xs text-gray-400">{r.hospital}</p>}
-                {r.memo && <p className="text-xs text-gray-400 mt-0.5">{r.memo}</p>}
+              <li key={r.id} className="border-b border-warm-border pb-3 last:border-0 last:pb-0">
+                <p className="text-sm font-medium text-ink">{r.date}</p>
+                <p className="text-sm text-ink-sub">{r.items.join(', ')}</p>
+                {r.hospital && <p className="text-xs text-ink-muted">{r.hospital}</p>}
+                {r.memo && <p className="text-xs text-ink-muted mt-0.5">{r.memo}</p>}
               </li>
             ))}
           </ul>

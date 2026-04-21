@@ -7,8 +7,8 @@ import html2canvas from 'html2canvas'
 
 function Card({ title, children }) {
   return (
-    <div className="bg-white rounded-2xl px-6 py-5 shadow-sm border border-gray-100">
-      <h2 className="text-base font-semibold text-gray-500 uppercase tracking-wide mb-3">{title}</h2>
+    <div className="bg-white rounded-2xl px-6 py-5 shadow-warm-xs border border-warm-border">
+      <h2 className="text-xs font-semibold text-ink-muted uppercase tracking-wide mb-3">{title}</h2>
       {children}
     </div>
   )
@@ -17,8 +17,8 @@ function Card({ title, children }) {
 function Row({ label, value }) {
   return (
     <div className="flex justify-between text-sm py-1">
-      <span className="text-gray-400">{label}</span>
-      <span className="text-gray-800 font-medium">{value}</span>
+      <span className="text-ink-muted">{label}</span>
+      <span className="text-ink font-medium">{value}</span>
     </div>
   )
 }
@@ -34,9 +34,16 @@ export default function Report() {
   const records = allRecords.filter((r) => r.petId === petId)
 
   if (!pet) return (
-    <div>
-      <p>반려동물을 찾을 수 없습니다.</p>
-      <button onClick={() => navigate('/my')}>홈으로</button>
+    <div className="min-h-screen bg-beige flex items-center justify-center px-4">
+      <div className="bg-white rounded-2xl p-10 text-center border border-warm-border shadow-warm-sm max-w-sm w-full">
+        <p className="text-ink-sub mb-4">반려동물을 찾을 수 없습니다.</p>
+        <button
+          onClick={() => navigate('/my')}
+          className="bg-brand text-ink px-6 py-2 rounded-xl font-semibold hover:bg-brand-dark transition-colors"
+        >
+          목록으로
+        </button>
+      </div>
     </div>
   )
 
@@ -53,31 +60,31 @@ export default function Report() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-6 px-4">
+    <div className="min-h-screen bg-beige py-6 px-4">
       <div className="max-w-2xl mx-auto">
 
         {/* 상단 액션 바 */}
         <div className="flex items-center justify-between mb-6">
           <button
             onClick={() => navigate(`/my/pets/${petId}`)}
-            className="text-sm text-gray-500 hover:text-gray-800"
+            className="text-sm text-ink-sub hover:text-ink transition-colors"
           >
             ← 뒤로
           </button>
           <button
             onClick={handleDownloadPdf}
-            className="bg-blue-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-blue-700"
+            className="bg-brand text-ink text-sm font-semibold px-4 py-2 rounded-xl hover:bg-brand-dark transition-colors shadow-warm-xs"
           >
             PDF 다운로드
           </button>
         </div>
 
-        <div ref={reportRef} className="space-y-4 bg-gray-50 pb-4">
+        <div ref={reportRef} className="space-y-4 bg-beige pb-4">
 
           {/* 헤더 */}
-          <div className="bg-white rounded-2xl px-6 py-5 shadow-sm border border-gray-100">
-            <h1 className="text-2xl font-bold text-gray-900">{report.pet.name} 건강 리포트</h1>
-            <p className="text-sm text-gray-400 mt-1">생성일: {report.generatedAt}</p>
+          <div className="bg-white rounded-2xl px-6 py-5 shadow-warm-xs border border-warm-border">
+            <h1 className="text-2xl font-bold text-ink">{report.pet.name} 건강 리포트</h1>
+            <p className="text-sm text-ink-muted mt-1">생성일: {report.generatedAt}</p>
           </div>
 
           {/* 기본 정보 */}
@@ -91,9 +98,9 @@ export default function Report() {
 
           {/* 건강 이력 요약 */}
           <Card title="건강 이력 요약">
-            <p className="text-gray-700 leading-relaxed">{report.summary}</p>
+            <p className="text-ink-sub leading-relaxed">{report.summary}</p>
             {report.nextVisit && (
-              <p className="mt-2 text-sm text-blue-600 font-medium">다음 예약일: {report.nextVisit}</p>
+              <p className="mt-2 text-sm text-accent-dark font-medium">다음 예약일: {report.nextVisit}</p>
             )}
           </Card>
 
@@ -103,8 +110,8 @@ export default function Report() {
               <ul className="space-y-2">
                 {report.schedules.map((s) => (
                   <li key={s.item} className="flex justify-between text-sm">
-                    <span className="font-medium text-gray-800">{s.item}</span>
-                    <span className="text-gray-500">마지막 {s.lastDate} → 다음 {s.nextDate}</span>
+                    <span className="font-medium text-ink">{s.item}</span>
+                    <span className="text-ink-sub">마지막 {s.lastDate} → 다음 {s.nextDate}</span>
                   </li>
                 ))}
               </ul>
@@ -116,11 +123,11 @@ export default function Report() {
             <Card title="최근 진료 기록">
               <ul className="space-y-3">
                 {report.recentRecords.map((r) => (
-                  <li key={r.id} className="border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                    <p className="text-sm font-medium text-gray-800">{r.date}</p>
-                    <p className="text-sm text-gray-600">{r.items.join(', ')}</p>
+                  <li key={r.id} className="border-b border-warm-border pb-3 last:border-0 last:pb-0">
+                    <p className="text-sm font-medium text-ink">{r.date}</p>
+                    <p className="text-sm text-ink-sub">{r.items.join(', ')}</p>
                     {(r.hospital || r.cost) && (
-                      <p className="text-xs text-gray-400 mt-0.5">
+                      <p className="text-xs text-ink-muted mt-0.5">
                         {[r.hospital, r.cost && `${r.cost.toLocaleString()}원`].filter(Boolean).join(' · ')}
                       </p>
                     )}
@@ -136,8 +143,8 @@ export default function Report() {
               <ul className="space-y-2">
                 {report.memos.map((m, i) => (
                   <li key={i} className="text-sm">
-                    <span className="text-gray-400 mr-2">{m.date}</span>
-                    <span className="text-gray-700">{m.memo}</span>
+                    <span className="text-ink-muted mr-2">{m.date}</span>
+                    <span className="text-ink-sub">{m.memo}</span>
                   </li>
                 ))}
               </ul>

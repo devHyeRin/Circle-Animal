@@ -83,42 +83,42 @@ export default function Services() {
   const [openFaq, setOpenFaq] = useState(null)
 
   return (
-    <div className="bg-white">
+    <div className="bg-ivory">
 
       {/* 히어로 */}
-      <section className="bg-gradient-to-br from-blue-50 to-white py-20 px-4">
+      <section className="bg-gradient-to-br from-brand-xlight to-ivory py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block bg-blue-100 text-blue-600 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          <span className="inline-block bg-brand-light text-brand-dark text-xs font-semibold px-3 py-1 rounded-full mb-4">
             내과 · 외과 · 치과 · 응급
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-ink leading-tight mb-4">
             어떤 진료든<br />
-            <span className="text-blue-600">한 곳에서</span> 해결합니다
+            <span className="text-accent-dark">한 곳에서</span> 해결합니다
           </h1>
-          <p className="text-gray-500 text-lg leading-relaxed">
+          <p className="text-ink-sub text-lg leading-relaxed">
             예방부터 수술, 응급까지. 분야별 전문 수의사가 직접 진료합니다.
           </p>
         </div>
       </section>
 
       {/* 진료 항목 카드 */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-ivory">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-10 text-center">진료 항목</h2>
+          <h2 className="text-2xl font-bold text-ink mb-10 text-center">진료 항목</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {SERVICES.map((s) => (
               <div
                 key={s.name}
-                className="bg-gray-50 rounded-2xl p-6 flex flex-col hover:shadow-md transition-shadow"
+                className="bg-white rounded-2xl p-6 flex flex-col border border-warm-border hover:shadow-warm-md transition-shadow"
               >
                 <div className="text-4xl mb-3">{s.icon}</div>
-                <span className="text-xs text-blue-600 font-semibold mb-1">{s.tag}</span>
-                <h3 className="text-base font-bold text-gray-900 mb-2">{s.name}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">{s.desc}</p>
+                <span className="text-xs text-accent-dark font-semibold mb-1">{s.tag}</span>
+                <h3 className="text-base font-bold text-ink mb-2">{s.name}</h3>
+                <p className="text-sm text-ink-sub leading-relaxed mb-4">{s.desc}</p>
                 <ul className="mt-auto space-y-1">
                   {s.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs text-gray-500">
-                      <span className="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0" />
+                    <li key={item} className="flex items-center gap-2 text-xs text-ink-sub">
+                      <span className="w-1 h-1 rounded-full bg-brand flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -130,17 +130,17 @@ export default function Services() {
       </section>
 
       {/* 진료 절차 */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-beige">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">진료 절차</h2>
-          <p className="text-gray-500 text-center mb-10">처음 오시는 분도 편하게 이용하실 수 있습니다.</p>
+          <h2 className="text-2xl font-bold text-ink mb-2 text-center">진료 절차</h2>
+          <p className="text-ink-sub text-center mb-10">처음 오시는 분도 편하게 이용하실 수 있습니다.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-            {STEPS.map((s, i) => (
-              <div key={s.step} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex gap-4">
-                <span className="text-2xl font-bold text-blue-100 leading-none">{s.step}</span>
+            {STEPS.map((s) => (
+              <div key={s.step} className="bg-white rounded-2xl p-5 shadow-warm-xs border border-warm-border flex gap-4">
+                <span className="text-2xl font-bold text-warm-200 leading-none">{s.step}</span>
                 <div>
-                  <p className="text-sm font-semibold text-gray-900 mb-1">{s.title}</p>
-                  <p className="text-xs text-gray-500 leading-relaxed">{s.desc}</p>
+                  <p className="text-sm font-semibold text-ink mb-1">{s.title}</p>
+                  <p className="text-xs text-ink-sub leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -149,24 +149,24 @@ export default function Services() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-ivory">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">자주 묻는 질문</h2>
-          <p className="text-gray-500 text-center mb-10">궁금한 점이 있으시면 전화로도 문의해 주세요.</p>
+          <h2 className="text-2xl font-bold text-ink mb-2 text-center">자주 묻는 질문</h2>
+          <p className="text-ink-sub text-center mb-10">궁금한 점이 있으시면 전화로도 문의해 주세요.</p>
           <ul className="space-y-3">
             {FAQS.map((faq, i) => (
-              <li key={i} className="border border-gray-200 rounded-2xl overflow-hidden">
+              <li key={i} className="border border-warm-border rounded-2xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex justify-between items-center px-5 py-4 text-left"
+                  className="w-full flex justify-between items-center px-5 py-4 text-left bg-white hover:bg-beige transition-colors"
                 >
-                  <span className="text-sm font-medium text-gray-900">{faq.q}</span>
-                  <span className="text-gray-400 text-lg leading-none ml-4">
+                  <span className="text-sm font-medium text-ink">{faq.q}</span>
+                  <span className="text-ink-muted text-lg leading-none ml-4">
                     {openFaq === i ? '−' : '+'}
                   </span>
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 pb-4 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
+                  <div className="px-5 pb-4 text-sm text-ink-sub leading-relaxed border-t border-warm-border pt-3 bg-white">
                     {faq.a}
                   </div>
                 )}
@@ -177,16 +177,16 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="bg-blue-600 py-16 px-4">
+      <section className="bg-brand py-16 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-3">지금 바로 예약하세요</h2>
-          <p className="text-blue-100 text-lg mb-8">
+          <h2 className="text-3xl font-bold text-ink mb-3">지금 바로 예약하세요</h2>
+          <p className="text-ink-sub text-lg mb-8">
             온라인 예약으로 대기 없이 빠르게.<br />
             첫 방문 보호자에게 기본 검진을 무료로 제공합니다.
           </p>
           <button
             onClick={() => navigate('/reservation')}
-            className="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-colors shadow"
+            className="bg-white text-ink px-8 py-3 rounded-xl font-semibold hover:bg-ivory transition-colors shadow-warm-sm"
           >
             예약하기
           </button>
